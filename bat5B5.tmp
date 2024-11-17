@@ -1,0 +1,184 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3v4l8jmt4fk5"]
+
+[ext_resource type="Script" path="res://battle.gd" id="1_sdwmr"]
+[ext_resource type="Texture2D" uid="uid://dg0cisr0kqtpx" path="res://08.png" id="1_timgt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfx15"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_887u1"]
+bg_color = Color(0.570548, 0.635937, 0.356649, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yi2d3"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7vry"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sdwmr")
+
+[node name="enemy container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 920.0
+offset_top = 287.0
+offset_right = -72.0
+offset_bottom = -175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="enemy container"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_cfx15")
+theme_override_styles/fill = SubResource("StyleBoxFlat_887u1")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="enemy container/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "5/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="enemy" type="TextureRect" parent="enemy container"]
+layout_mode = 2
+texture = ExtResource("1_timgt")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.106
+offset_bottom = 0.311996
+grow_horizontal = 2
+
+[node name="PlayerData" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/PlayerData"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "PLAYER:"
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel/PlayerData"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_cfx15")
+theme_override_styles/fill = SubResource("StyleBoxFlat_887u1")
+max_value = 50.0
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Panel/PlayerData/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -2.0
+offset_right = 3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="action Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.897
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.255981
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="action Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="action Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_yi2d3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yi2d3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u7vry")
+text = "ATTACK"
+
+[node name="Button2" type="Button" parent="action Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_yi2d3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yi2d3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u7vry")
+text = "DEFEND
+"
+
+[node name="Button3" type="Button" parent="action Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_yi2d3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yi2d3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u7vry")
+text = "RUN
+"
+
+[connection signal="pressed" from="action Panel/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]

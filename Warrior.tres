@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bb0midwqlma5q"]
+
+[ext_resource type="Script" path="res://BaseEnemy.gd" id="1_bvqxv"]
+[ext_resource type="Texture2D" uid="uid://dg0cisr0kqtpx" path="res://08.png" id="2_bxqvi"]
+
+[resource]
+script = ExtResource("1_bvqxv")
+name = "Warrior"
+texture = ExtResource("2_bxqvi")
+health = 45
+damage = 15
